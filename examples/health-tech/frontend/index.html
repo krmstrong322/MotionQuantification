@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health-Tech Remote Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Health-Tech Remote Monitoring</h1>
+            <div class="space-x-4">
+                <a href="#" class="hover:underline">Dashboard</a>
+                <a href="#" class="hover:underline">Patients</a>
+                <a href="#" class="hover:underline">Reports</a>
+                <a href="#" class="hover:underline">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-4">
+        <!-- Dashboard Page -->
+        <div id="dashboard-page" class="page-content">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Patient Dashboard</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Current Patients</h3>
+                        <div class="text-3xl font-bold text-blue-600">48</div>
+                        <div class="text-sm text-gray-500">+5 since last month</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Active Sessions</h3>
+                        <div class="text-3xl font-bold text-green-600">12</div>
+                        <div class="text-sm text-gray-500">3 currently recording</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Data Collected</h3>
+                        <div class="text-3xl font-bold text-purple-600">256 GB</div>
+                        <div class="text-sm text-gray-500">+14 GB this week</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Recent Patient Activity</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Activity</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">John Doe</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Walking Exercise</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Today, 09:45 AM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">Jane Smith</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Knee Rehabilitation</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Today, 08:30 AM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">Michael Johnson</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Shoulder Exercise</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Today, 10:15 AM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">In Progress</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">Emily Davis</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Balance Training</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Yesterday, 2:30 PM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">Robert Wilson</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Gait Analysis</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Yesterday, 3:45 PM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap"><span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow p-4">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Upcoming Sessions</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Patient</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Session Type</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date & Time</th>
+                                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Therapist</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">Alice Brown</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Initial Assessment</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Tomorrow, 10:00 AM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Dr. Sarah Miller</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">James Wilson</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Follow-up</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Tomorrow, 11:30 AM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Dr. Mark Johnson</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">Olivia Martinez</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Gait Training</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Tomorrow, 2:00 PM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Dr. Sarah Miller</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">William Taylor</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Range of Motion</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Tomorrow, 3:30 PM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Dr. James Peterson</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 whitespace-nowrap">Sophia Anderson</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Balance Assessment</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Day after tomorrow, 9:00 AM</td>
+                                    <td class="px-4 py-2 whitespace-nowrap">Dr. Mark Johnson</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Patient Progress Metrics</h2>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">John Doe - Recovery Progress</h3>
+                        <div class="text-sm text-gray-500 mb-4">Last 5 weeks of rehabilitation</div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="text-md font-medium text-gray-700 mb-2">Gait Speed (m/s)</h4>
+                            <canvas id="gaitSpeedChart" width="100%" height="200"></canvas>
+                        </div>
+                        <div>
+                            <h4 class="text-md font-medium text-gray-700 mb-2">Stride Length (m)</h4>
+                            <canvas id="strideLengthChart" width="100%" height="200"></canvas>
+                        </div>
+                        <div>
+                            <h4 class="text-md font-medium text-gray-700 mb-2">Range of Motion (degrees)</h4>
+                            <canvas id="rangeOfMotionChart" width="100%" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">System Status</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Server Status</h3>
+                        <div class="flex items-center">
+                            <div class="h-4 w-4 rounded-full bg-green-500 mr-2"></div>
+                            <div class="text-green-600 font-medium">Operational</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Database</h3>
+                        <div class="flex items-center">
+                            <div class="h-4 w-4 rounded-full bg-green-500 mr-2"></div>
+                            <div class="text-green-600 font-medium">Connected</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">API Status</h3>
+                        <div class="flex items-center">
+                            <div class="h-4 w-4 rounded-full bg-green-500 mr-2"></div>
+                            <div class="text-green-600 font-medium">All Systems Normal</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">Last Backup</h3>
+                        <div class="text-gray-700">Today, 03:15 AM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Patients Page -->
+        <div id="patients-page" class="page-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Patient Management</h2>
+                <div id="patients-list" class="bg-white rounded-lg shadow p-6">
+                    <!-- Patient list will be loaded here via JavaScript -->
+                    <div class="text-center py-4">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+                        <p class="mt-2 text-gray-600">Loading patients...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reports Page -->
+        <div id="reports-page" class="page-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Reports</h2>
+                <div id="reports-list" class="bg-white rounded-lg shadow p-6">
+                    <!-- Reports will be loaded here via JavaScript -->
+                    <div class="text-center py-4">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+                        <p class="mt-2 text-gray-600">Loading reports...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Settings Page -->
+        <div id="settings-page" class="page-content hidden">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Settings</h2>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">User Settings</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                                Username
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                   id="username" type="text" value="admin">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                                Email
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                   id="email" type="email" value="admin@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                                Password
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                   id="password" type="password" value="********">
+                        </div>
+                        <div class="flex items-center justify-end">
+                            <button class="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700" type="button">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <hr class="my-6">
+                    
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">System Settings</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="data_retention">
+                                Data Retention Period
+                            </label>
+                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    id="data_retention">
+                                <option>30 days</option>
+                                <option>60 days</option>
+                                <option selected>90 days</option>
+                                <option>180 days</option>
+                                <option>1 year</option>
+                                <option>Forever</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="backup_frequency">
+                                Backup Frequency
+                            </label>
+                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    id="backup_frequency">
+                                <option>Every hour</option>
+                                <option>Every 6 hours</option>
+                                <option selected>Every 12 hours</option>
+                                <option>Daily</option>
+                                <option>Weekly</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="enable_analytics" type="checkbox" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="enable_analytics" class="ml-2 block text-sm text-gray-700">
+                                Enable analytics data collection
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="enable_notifications" type="checkbox" checked class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="enable_notifications" class="ml-2 block text-sm text-gray-700">
+                                Enable email notifications
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-end">
+                            <button class="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700" type="button">
+                                Save System Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white p-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold mb-2">Health-Tech Remote Monitoring</h2>
+                    <p class="text-gray-400">Providing innovative solutions for remote patient monitoring</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Contact</h3>
+                    <p class="text-gray-400">Email: info@health-tech.example</p>
+                    <p class="text-gray-400">Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-700 text-gray-400 text-sm">
+                &copy; 2023 Health-Tech Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
